@@ -69,3 +69,4 @@ Here is an example if you need to check if the item has a caption and also if th
 
  - Add auto renew of long live token.
  - Better error handling.
+ - Add limit on how many posts to retrieve.
