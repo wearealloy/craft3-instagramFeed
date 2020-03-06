@@ -1,0 +1,62 @@
+{% import "_includes/forms" as forms %}
+{% set authLink = craft.instagram.getAuthLink() %}
+
+{{ forms.textField({
+    label: "Instgram App Id",
+    id: 'appId',
+    name: 'appId',
+    instructions: "Please, enter your Instagram App Id.",
+    value: settings.appId,
+    type: 'text',
+    required: true
+}) }}
+
+{{ forms.textField({
+    label: "Instgram App Secret",
+    id: 'appSecret',
+    name: 'appSecret',
+    instructions: "Please, enter your Instagram App Secret.",
+    value: settings.appSecret,
+    type: 'text',
+    required: true
+}) }}
+
+{{ forms.textField({
+    label: "Instgram App Redirect URI",
+    id: 'redirectUri',
+    name: 'redirectUri',
+    instructions: "Please, enter your Instagram app redirect URI.",
+    value: settings.redirectUri,
+    type: 'text',
+    required: true
+}) }}
+
+
+{% if settings.appId != '' and settings.appSecret != '' and settings.redirectUri != '' %}
+
+    <a href="{{authLink}}" class="btn submit" target="_blank" >Get Auth Link</a>
+
+    {{ forms.textField({
+        label: "Instgram API Token",
+        id: 'apiToken',
+        name: 'apiToken',
+        instructions: "Please, enter your Instagram API Token from link.",
+        value: settings.apiToken,
+        type: 'text',
+        required: false
+    }) }}
+
+{% endif %}
+
+{% if settings.longAccesToken != '' and settings.expirationTime <= 0 %}
+    <h2 style="color: red;"> Acces token has expired, please refresh Instagram API key by cliking the Get Auth Link</h2>
+{% elseif settings.longAccesToken != '' and settings.expirationTime > 0 %}
+    <h2 style="color: green;"> Conection succesfull to Instgram's API </h2>
+{% endif %}
+
+{% if settings.longAccesToken != '' %}
+    <p>Your token expires in {{settings.expirationTime}} days.</p>
+    <br>  
+    <p style="font-size: 13px;">re-saving the plugin will refresh the token if it has not expired yet</p>
+{% endif %}
+

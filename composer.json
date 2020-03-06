@@ -1,0 +1,42 @@
+{
+    "name": "blackmagic/instagrammedia",
+    "description": "Plugin to retrieve instagram media using Facebook's Instagram Basic API",
+    "type": "craft-plugin",
+    "version": "1.2.1",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "instagrammedia",
+        "instgram",
+        "instgramfeed"
+    ],
+    "support": {
+        "docs": "https://github.com/wearealloy/craft3-instagramFeed/blob/master/README.md",
+        "issues": "https://github.com/wearealloy/craft3-instagramFeed/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Black Magic",
+            "homepage": "https://heyblackmagic.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1",
+        "espresso-dev/instagram-basic-display-php": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+          "blackmagic\\instagrammedia\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Instgram Media",
+        "handle": "instagrammedia",
+        "hasCpSection": false,
+        "hasSettings": true,
+        "class": "blackmagic\\instagrammedia\\InstagramMedia"
+    }
+}
