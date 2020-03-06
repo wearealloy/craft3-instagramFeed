@@ -2,7 +2,7 @@
     "name": "blackmagic/instagrammedia",
     "description": "Plugin to retrieve instagram media using Facebook's Instagram Basic API",
     "type": "craft-plugin",
-    "version": "1.2.1",
+    "version": "1.0.0",
     "keywords": [
         "craft",
         "cms",
